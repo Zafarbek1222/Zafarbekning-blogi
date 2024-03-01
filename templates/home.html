@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Main page{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<body>
+
+<div class="jumbotron" style="background-color:gray">
+    <section id="intro">
+        <img src="static/homeimage.jpg"  width="120" height="150" class="profile-pic">
+        <h1 class="display-4">Assalomu alaykum</h1>
+        <p class="lead">Sa'dullayev Zafarbekning shaxsiy blogiga xush kelibsiz!</p>
+        <hr class="my-4">
+        <p>Bu blogda siz qiziqarli ma'lumotlar va dasturlashga oid so'nggi yangiliklardan xabardor bo'lasiz</p>
+        <p class="lead">
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">Postlar</a>
+            <a class="btn btn-primary btn-lg" href="https://github.com/Zafarbek1222" role="button">My portfolio</a>
+        {% else %}
+            <p>Postlarni ko'rish uchun ro'yxatdan o'ting(Sign up)</p>
+        {% endif %}
+        </p>
+    </section>
+
+</div>
+</body>
+
+{% endblock content %}
+
+
+
+
+
